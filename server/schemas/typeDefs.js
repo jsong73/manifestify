@@ -3,42 +3,39 @@ const { gql } = require("@apollo/server");
 const typeDefs = gql`
   type User {
     _id: ID
-    username: String
     email: String
     password: String
-    thoughts: [Thought]!
+    manifestations: [Manifestation]
   }
-  type Thought {
+  
+  type Manifestation {
     _id: ID
-    thoughtText: String
-    createdAt: String
-    username: String
-    comments: [Comment]!
-  }
-  type Comment {
-    _id: ID
-    commentText: String
-    username: String
+    todaysFeeling: String
+    whatToManifest: String
+    manifestationAction: String
+    manifestationObstacles: String
+    todayImGratefulFor: String
+    details: String
     createdAt: String
   }
+  
   type Auth {
     token: ID!
     user: User
   }
+
   type Query {
-    users: [User]
-    user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
+    user(email: String!): User
+    manifestations(email: String): [Manifestation]
+    manifestation(manifestationId: ID!): Manifestation
     me: User
   }
+
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!): Thought
-    addComment(thoughtId: ID!, commentText: String!): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addManifestation(todaysFeeling: String!, whatToManifest: String!, manifestationAction: String!, manifestationObstacles: String!, todayImGratefulFor: String!, details: String): Manifestation
+    removeManifestation(manifestationId: ID!): Manifestation
   }
 `;
 

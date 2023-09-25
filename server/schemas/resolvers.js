@@ -45,7 +45,7 @@ Mutation:{
         const token = signToken(user);
         return { token, user };
       },
-    addManifestation: async (parent,{ todaysFeeling, whatToManifest, manifestationAction, manifestationObstacles, todayImGratefulFor , details, createdAt }, context) => {
+    addManifestation: async (parent,{ todaysFeeling, whatToManifest, manifestationAction, manifestationObstacles, todayImGratefulFor , details }, context) => {
         if (context.user) {
           const manifestation = await Manifestation.create({
             todaysFeeling,
@@ -54,7 +54,6 @@ Mutation:{
             manifestationObstacles,
             todayImGratefulFor,
             details,
-            createdAt,
             user: context.user._id,
           });
           await User.findByIdAndUpdate(context.user._id, {

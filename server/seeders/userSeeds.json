@@ -1,0 +1,13 @@
+[
+    {
+      "email": "johndoe@yahoo.com",
+      "password": "hello12345",
+      "birthday":"7/3/1997"
+    },
+    {
+      "email": "janedoe@gmail.com",
+      "password": "root12345",
+      "birthday":"10/6/1993"
+    }
+  ]
+  

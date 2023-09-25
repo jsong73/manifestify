@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const db = require("./config/connection")
 
 const PORT = process.env.PORT || 3004;
 
@@ -7,6 +8,8 @@ const PORT = process.env.PORT || 3004;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.listen(PORT, () => {
-    console.log(`server running on port ${PORT}`)
+db.once("connected", () => {
+    app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}`)
+})
 })

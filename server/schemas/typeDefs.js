@@ -5,6 +5,7 @@ const typeDefs = gql`
     _id: ID
     email: String
     password: String
+    birthday: String
     manifestations: [Manifestation]
   }
   
@@ -32,7 +33,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(email: String!, password: String!): Auth
+    addUser(email: String!, password: String!, birthday: String!): Auth
     login(email: String!, password: String!): Auth
     addManifestation(todaysFeeling: String!, whatToManifest: String!, manifestationAction: String!, manifestationObstacles: String!, todayImGratefulFor: String!, details: String): Manifestation
     removeManifestation(manifestationId: ID!): Manifestation

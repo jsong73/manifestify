@@ -1,5 +1,5 @@
 const { User, Manifestation } = require("../models");
-const { GraphQLError } = require("@apollo/server");
+const { GraphQLError } = require("graphql")
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -26,8 +26,8 @@ Query: {
 
 
 Mutation:{
-    addUser: async (parent, {email, password}) => {
-        const user = await User.create({email, password});
+    addUser: async (parent, {email, password, birthday}) => {
+        const user = await User.create({email, password, birthday});
         const token = signToken(user);
         return {token, user}
     },

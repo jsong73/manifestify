@@ -1,12 +1,14 @@
 {
   "name": "manifestify",
   "version": "1.0.0",
-  "main": "server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
+    "install": "cd server && npm install && cd ../ && cd client && npm install",
+    "start": "node server/server.js",
+    "build": "cd client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "watch": "nodemon server.js",
-    "seed": "node seeders/seed.js"
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\""
   },
   "repository": {
     "type": "git",
@@ -20,15 +22,6 @@
   },
   "homepage": "https://github.com/jsong73/manifestify#readme",
   "dependencies": {
-    "@apollo/server": "^4.9.3",
-    "bcrypt": "^5.1.1",
-    "express": "^4.18.2",
-    "graphql": "^16.8.1",
-    "graphql-tag": "^2.12.6",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^7.5.2",
-    "nodemon": "^3.0.1"
-  },
-  "devDependencies": {},
-  "description": ""
+    "concurrently": "^8.2.1"
+  }
 }

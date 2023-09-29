@@ -2,6 +2,7 @@ const { User, Manifestation } = require("../models");
 const { GraphQLError } = require("graphql")
 const { signToken } = require("../utils/auth");
 
+
 const resolvers = {
 Query: {
     user: async (parent, { email }) => {

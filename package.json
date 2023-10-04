@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/jsong73/manifestify#readme",
   "dependencies": {
-    "concurrently": "^8.2.1"
+    "concurrently": "^8.2.1",
+    "node-fetch-commonjs": "^3.3.2"
   }
 }

@@ -20,8 +20,6 @@ async function startApolloServer() {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-  
 db.once("open", () => {
     startApolloServer();
   });

@@ -1,17 +1,55 @@
-import React from "react";
-
+import React, {useState} from "react";
+import Auth from "../../utils/Auth"
+import { ADD_USER } from "../../utils/mutations";
+import { useMutation } from "@apollo/client";
 
 const Signup = () => {
+    const [formState, setFormState] = useState({
+        email: "",
+        password: "",
+        birthday: "",
+      });
+    
+      const [ addUser] = useMutation(ADD_USER);
+      
+      const handleChange = (event) => {
+        const {name, value} = event.target;
+    
+        setFormState({
+          ...formState,
+          [name]: value,
+        });
+      };
+    
+      const signupFormHandler = async (event) => {
+        event.preventDefault();
+        try{
+          const { data } = await addUser({
+            variables: {...formState},
+          });
+          Auth.login(data.addUser.token);
+        } catch (error) {
+          console.log(error)
+        }
+    
+        setFormState({
+          email: "",
+          password: "",
+          birthday:""
+        })
+      };
+    
     return (
       <div className="circular-gradient text-white">
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div className="flex flex-col items-center justify-center h-screen text-center">
                 <h1 className="text-center text-3xl text-shadow">Create a new account</h1>
 
-                <form  
-             className="mt-8 space-y-6" 
+            <form  
+             className="button mt-8 space-y-6" 
              onSubmit= {signupFormHandler}>
-              <input
-                className="relative block w-full appearance-none rounded-md rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+
+            <input
+                className="w-5/6 bg-transparent border border-white rounded-full px-4 py-4"
                 placeholder="Email"
                 name="email"
                 type="email"
@@ -19,17 +57,8 @@ const Signup = () => {
                 value= {formState.email}
                 onChange={handleChange}/>
 
-              <input
-                className="relative block w-full appearance-none rounded-md rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                placeholder="Username"
-                name="username"
-                type="username"
-                autoComplete="off"
-                value= {formState.username}
-                onChange={handleChange}/>
-
-              <input
-                className="relative block w-full appearance-none rounded-md rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+            <input
+                className="w-5/6 bg-transparent border border-white rounded-full px-4 py-4"
                 placeholder="Password"
                 name="password"
                 type="password"
@@ -37,8 +66,18 @@ const Signup = () => {
                 value= {formState.password}
                 onChange={handleChange}/>
 
+            <input
+                className="w-5/6 bg-transparent border border-white rounded-full px-4 py-4 text-white"
+                placeholder="Birthday"
+                name="birthday"
+                type="Date"
+                autoComplete="off"
+                value= {formState.birthday}
+                onChange={handleChange}/>
+
+
               <button 
-              className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit"> Create account </button>
+              className="text-md text-shadow border border-white rounded-full px-4 py-4 mt-12" type="submit"> Create account </button>
             </form>
         </div>
       </div>

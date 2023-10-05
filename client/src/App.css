@@ -16,3 +16,13 @@ h1{
 .text-shadow {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); 
   }
+
+input:focus {
+    outline: none;
+    border-color: white; 
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: white; /* Set the placeholder text color to white */
+}

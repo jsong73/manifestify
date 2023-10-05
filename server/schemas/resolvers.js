@@ -2,7 +2,6 @@ const { User, Manifestation } = require("../models");
 const { GraphQLError } = require("graphql")
 const { signToken } = require("../utils/auth");
 
-
 const resolvers = {
 Query: {
     user: async (parent, { email }) => {
@@ -23,9 +22,7 @@ Query: {
       }
       throw new GraphQLError("You need to be logged in!");
     },
-  },
-
-
+},
 Mutation:{
     addUser: async (parent, {email, password, birthday}) => {
         const user = await User.create({email, password, birthday});

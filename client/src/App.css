@@ -1,0 +1,18 @@
+.circular-gradient {
+    width: 100%;
+    min-height: 100vh; 
+    background: radial-gradient(circle at center,#FFDEA3 0%, #f0bfa2 25%, #e6a88b 50%, #c9b0f0 100%);
+    background-size: cover;
+}
+
+h1{
+    font-family: 'Young Serif', serif;
+}
+
+.button{
+    font-family: 'Inter Tight', sans-serif;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); 
+  }

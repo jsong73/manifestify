@@ -1,24 +1,25 @@
 import React from "react";
-import { ApolloClient, HttpLink, ApolloLink, InMemoryCache, ApolloProvider, concat } from '@apollo/client';
+import { ApolloClient, HttpLink, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { setContext } from "@apollo/client/link/context";
 import Home from "./pages/Home/index";
+import Enter from "./pages/Enter"
 
 const httpLink = new HttpLink({ uri: "/graphql" })
 
-const authMiddleware = new ApolloLink((operation, forward) => {
-  operation.setContext(({ headers = {} }) => ({
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
     headers: {
       ...headers,
-      authorization: localStorage.getItem("token") || null,
-  }
-}));
-
-return forward(operation);
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
 });
 
 const client = new ApolloClient({
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
-  link: concat(authMiddleware, httpLink)
 })
 
 
@@ -27,7 +28,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Routes>
-          <Route path="/" element={ <Home />} />
+          <Route path="/" element={ <Enter />} />
+          <Route path="/home" element={ <Home />} />
         </Routes>
       </Router>
     </ApolloProvider>

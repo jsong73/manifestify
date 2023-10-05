@@ -3,7 +3,9 @@ import { ApolloClient, HttpLink, InMemoryCache, ApolloProvider } from '@apollo/c
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { setContext } from "@apollo/client/link/context";
 import Home from "./pages/Home/index";
-import Enter from "./pages/Enter"
+import Enter from "./pages/Enter/index"
+import Login from "./pages/Login/index"
+import Signup from "./pages/Signup/index"
 
 const httpLink = new HttpLink({ uri: "/graphql" })
 
@@ -30,6 +32,8 @@ function App() {
         <Routes>
           <Route path="/" element={ <Enter />} />
           <Route path="/home" element={ <Home />} />
+          <Route path="/signup" element={ <Signup />} />
+          <Route path="/login" element={ <Login />} />
         </Routes>
       </Router>
     </ApolloProvider>

@@ -36,7 +36,7 @@ const Fortune = () => {
     return (
       <div>
         <button className="button text-xl text-shadow border border-white rounded-full px-3 py-3 mt-5" onClick={fetchFortune}>
-         Reveal today's daily affirmation
+            Reveal daily quote
         </button>
         <div className="button text-xl mt-5">{fortuneText}</div>
       </div>

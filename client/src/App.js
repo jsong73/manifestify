@@ -6,6 +6,7 @@ import Home from "./pages/Home/index";
 import Enter from "./pages/Enter/index"
 import Login from "./pages/Login/index"
 import Signup from "./pages/Signup/index"
+import AllManifestations from "./components/AllManifestations"
 
 const httpLink = new HttpLink({ uri: "/graphql" })
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/home" element={ <Home />} />
           <Route path="/signup" element={ <Signup />} />
           <Route path="/login" element={ <Login />} />
+          <Route path="/manifestations" element={<AllManifestations />} />
         </Routes>
       </Router>
     </ApolloProvider>

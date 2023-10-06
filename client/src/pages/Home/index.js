@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "../../components/Nav"
+import Fortune from "../../components/Fortune";
 
 const Home = () => {
 
@@ -17,6 +18,8 @@ const Home = () => {
           <Nav />
              <h1 className="text-8xl mb-10">333</h1>
               <h2 className="text-2xl"> {formattedDate} </h2>
+
+              <Fortune />
 
 
       </main>

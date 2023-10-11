@@ -3,15 +3,19 @@ import axios from "axios"
 
 
 const Fortune = () => {
+
+    const apiKey = `${process.env.REACT_APP_API_KEY}`;
+
+
     const [fortuneText, setFortuneText] = useState("");
-  
+
     const fetchFortune = async () => {
       try {
         const options = {
           method: 'GET',
           url: 'https://fortune-cookie4.p.rapidapi.com/slack',
           headers: {
-            'X-RapidAPI-Key': '8a9925bfe5mshb2fda82cd5c3acbp140841jsn675dbba9e459',
+            'X-RapidAPI-Key': apiKey,
             'X-RapidAPI-Host': 'fortune-cookie4.p.rapidapi.com'
           }
         };

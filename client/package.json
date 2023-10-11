@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.16",
     "axios": "^1.5.1",
+    "dotenv": "^16.3.1",
     "graphql": "^16.8.1",
     "jwt-decode": "^3.1.2",
     "postcss": "^8.4.31",
@@ -47,4 +48,5 @@
   "devDependencies": {
     "tailwindcss": "^3.3.3"
   }
+  
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "../../components/Nav"
 import Fortune from "../../components/Fortune";
+import ManifestationForm from "../../components/ManifestationForm"
 
 const Home = () => {
 
@@ -20,6 +21,8 @@ const Home = () => {
               <h2 className="text-2xl"> {formattedDate} </h2>
 
               <Fortune />
+
+              <ManifestationForm />
 
 
       </main>

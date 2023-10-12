@@ -4,7 +4,7 @@ import React from "react";
 const AllManifestations = () => {
 return (
 <div>
- ALL OF MY MANIFESTATIONS
+ all my manifestations
 </div>
     );
 }

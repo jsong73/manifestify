@@ -8,8 +8,8 @@ const Nav = () => {
         Auth.logout()
     }
     return (
-      <nav>
-        <Link to="/manifestations"> My manifestations </Link>
+      <nav className="button ">
+        <Link to="/manifestations"> Manifestations </Link>
 
         <button onClick={logout}> Logout </button>
         

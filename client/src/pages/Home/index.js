@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../../components/Nav"
 import Fortune from "../../components/Fortune";
 import ManifestationForm from "../../components/ManifestationForm"
+import AllManifestations from "../../components/AllManifestations";
 
 const Home = () => {
 
@@ -23,7 +24,8 @@ const Home = () => {
               <Fortune />
 
               <ManifestationForm />
-
+              
+              <AllManifestations />
 
       </main>
     );

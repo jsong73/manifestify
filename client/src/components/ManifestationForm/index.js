@@ -51,7 +51,7 @@ const ManifestationForm = () => {
     return (
         <div className="flex justify-center h-screen text-center">
 
-          <form ref={formRef} className="button space-y-2" onSubmit={manifestationFormHandler}>
+          <form ref={formRef} className="button space-y-2 border-2" onSubmit={manifestationFormHandler}>
        
           <div className="mt-3">
           <label> Today I am feeling... </label>
@@ -106,8 +106,6 @@ const ManifestationForm = () => {
               onChange={handleChange}
             />
           </div>
-
-
 
             <button className="text-md text-shadow border border-white rounded-full px-3 py-3" type="submit">
              Save my manifestation

@@ -2,7 +2,8 @@ import React from "react";
 import Nav from "../../components/Nav"
 import Fortune from "../../components/Fortune";
 import ManifestationForm from "../../components/ManifestationForm"
-import AllManifestations from "../../components/AllManifestations";
+import AllManifestations from "../AllManifestations";
+
 
 const Home = () => {
 
@@ -23,9 +24,17 @@ const Home = () => {
 
               <Fortune />
 
+              <div className="justify-center ">
+              <div className="flex">
+              <div className="w-1/2 p-4 ">
               <ManifestationForm />
-              
+              </div>
+              <div className="w-1/2 p-4">
               <AllManifestations />
+              </div>
+              </div>
+              </div >
+              
 
       </main>
     );

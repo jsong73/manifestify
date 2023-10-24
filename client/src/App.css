@@ -30,3 +30,6 @@ input[type="email"]::placeholder,
 input[type="password"]::placeholder {
     color: white; /* Set the placeholder text color to white */
 }
+
+
+

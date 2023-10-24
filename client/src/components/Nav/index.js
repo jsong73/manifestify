@@ -8,10 +8,13 @@ const Nav = () => {
         Auth.logout()
     }
     return (
-      <nav className="button ">
-        <Link to="/manifestations"> Manifestations </Link>
+      <nav className="button text-white text-center">
+        <Link  className="text-xl mr-3"to="/home"> home </Link>
 
-        <button onClick={logout}> Logout </button>
+ 
+        <button 
+        className="text-xl"
+        onClick={logout}> logout </button>
         
       </nav>
     );

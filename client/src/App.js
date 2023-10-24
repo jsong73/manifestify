@@ -6,7 +6,7 @@ import Home from "./pages/Home/index";
 import Enter from "./pages/Enter/index"
 import Login from "./pages/Login/index"
 import Signup from "./pages/Signup/index"
-import AllManifestations from "./components/AllManifestations"
+import AllManifestations from "./pages/AllManifestations"
 
 const httpLink = new HttpLink({ uri: "/graphql" })
 

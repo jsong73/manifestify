@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 import React ,{ useState } from "react";
 import { QUERY_ME } from "../../utils/queries";
 
+
 const AllManifestations = () => {
 
     const { data } = useQuery(QUERY_ME)
@@ -21,11 +22,16 @@ const AllManifestations = () => {
     }
 
 return (
-<div>
+<div className="button space-y-2">
+
     <h1>Manifestations</h1>
     {manifestations.map((manifestation) => (
-        <div key={manifestation._id}>
-          <button onClick={() => toggleButton(manifestation._id)}>
+        <div 
+        className="w-full mt-2 bg-transparent border border-white rounded-full px-1 py-1 text-center"
+        key={manifestation._id}>
+          <button 
+          className="w-full h-10 text-sm  "
+          onClick={() => toggleButton(manifestation._id)}>
           {manifestation.createdAt}
           </button>
             {expandedButton[manifestation._id] &&(

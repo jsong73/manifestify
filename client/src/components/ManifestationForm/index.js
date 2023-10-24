@@ -49,9 +49,9 @@ const ManifestationForm = () => {
     }
 
     return (
-        <div className="flex justify-center h-screen text-center">
+        <div className="flex justify-center  text-center">
 
-          <form ref={formRef} className="button space-y-2 border-2" onSubmit={manifestationFormHandler}>
+          <form ref={formRef} className="button space-y-2" onSubmit={manifestationFormHandler}>
        
           <div className="mt-3">
           <label> Today I am feeling... </label>
@@ -81,7 +81,7 @@ const ManifestationForm = () => {
           </div>
 
           <div>
-          <label> To overcome my manifestation obstacles, I will.. </label>
+          <label> To overcome my manifestation obstacles, I will... </label>
             <input
               className="w-5/6 mt-2 bg-transparent border border-white rounded-full px-1 py-1 text-center"
               name="manifestationObstacles"
@@ -90,7 +90,7 @@ const ManifestationForm = () => {
           </div>
 
           <div>
-          <label> Today I am grateful for.. </label>
+          <label> Today I am grateful for... </label>
             <input
               className="w-5/6 mt-2 bg-transparent border border-white rounded-full px-1 py-1 text-center"
               name="todayImGratefulFor"

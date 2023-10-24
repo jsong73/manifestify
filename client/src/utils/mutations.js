@@ -28,8 +28,8 @@ mutation addUser($email: String!, $password: String!, $birthday: String!) {
 
   
 export const ADD_MANIFESTATION = gql`
-mutation addManifestation($todaysFeeling: String!, $whatToManifest: String!, $manifestationAction: String!, $manifestationObstacles: String!, $todayImGratefulFor: String!) {
-    addManifestation(todaysFeeling: $todaysFeeling, whatToManifest: $whatToManifest, manifestationAction: $manifestationAction, manifestationObstacles: $manifestationObstacles, todayImGratefulFor: $todayImGratefulFor) {
+mutation addManifestation($todaysFeeling: String!, $whatToManifest: String!, $manifestationAction: String!, $manifestationObstacles: String!, $todayImGratefulFor: String!, $details: String) {
+    addManifestation(todaysFeeling: $todaysFeeling, whatToManifest: $whatToManifest, manifestationAction: $manifestationAction, manifestationObstacles: $manifestationObstacles, todayImGratefulFor: $todayImGratefulFor, details: $details) {
       _id
       createdAt
       details

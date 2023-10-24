@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import React ,{ useState } from "react";
 import { QUERY_ME } from "../../utils/queries";
-
+import DeleteBtn from "../../components/DeleteBtn";
 
 const AllManifestations = () => {
 
@@ -30,10 +30,12 @@ return (
         className="w-full mt-2 bg-transparent border border-white rounded-full px-1 py-1 text-center"
         key={manifestation._id}>
           <button 
-          className="w-full h-10 text-sm  "
+          className="w-full h-10 text-sm "
           onClick={() => toggleButton(manifestation._id)}>
           {manifestation.createdAt}
+         
           </button>
+          <DeleteBtn manifestationId={manifestation._id}/>
             {expandedButton[manifestation._id] &&(
         <div>
             <p> Today I'm feeling {manifestation.todaysFeeling}</p>

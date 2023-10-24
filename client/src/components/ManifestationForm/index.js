@@ -33,7 +33,8 @@ const ManifestationForm = () => {
             })
         console.log(data)
         formRef.current.reset();
-
+        window.location.reload();
+        
       setFormState({
         todaysFeeling:"",
         whatToManifest:"",
@@ -41,6 +42,8 @@ const ManifestationForm = () => {
         manifestationObstacles:"",
         todayImGratefulFor:"",
         details:"",
+
+        
       });
 
         } catch(error){

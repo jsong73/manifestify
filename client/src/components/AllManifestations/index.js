@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import React from "react";
+import React ,{ useState } from "react";
 import { QUERY_ME } from "../../utils/queries";
 
 const AllManifestations = () => {
@@ -9,12 +9,27 @@ const AllManifestations = () => {
     const manifestations = data?.me.manifestations || []
 
     console.log(manifestations)
+
+    // expand manifestations 
+    const [expandedButton, setExpandedButton] = useState({})
+
+    const toggleButton = (manifestationId) => {
+        setExpandedButton((prev) =>({
+            ...prev,
+            [manifestationId]:!prev[manifestationId]
+        }))
+    }
+
 return (
 <div>
+    <h1>Manifestations</h1>
     {manifestations.map((manifestation) => (
         <div key={manifestation._id}>
-            <h1>Manifestations</h1>
-            <h2> {manifestation.createdAt}</h2>
+          <button onClick={() => toggleButton(manifestation._id)}>
+          {manifestation.createdAt}
+          </button>
+            {expandedButton[manifestation._id] &&(
+        <div>
             <p> Today I'm feeling {manifestation.todaysFeeling}</p>
             <p> I want to manifest {manifestation.whatToManifest}</p>
             <p> To achieve my manifestations, I will {manifestation.manifestationAction}</p>
@@ -24,7 +39,8 @@ return (
             {manifestation.details && (
             <p> {manifestation.details}</p>
             )}
-            
+            </div>
+            )}    
         </div>
     ))}
 

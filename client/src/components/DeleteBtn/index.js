@@ -37,8 +37,10 @@ const removeManifestationHandler = async ( manifestationId ) =>{
 
 return(
 
-<div>
-    <button onClick={() => removeManifestationHandler(manifestationId)}>X</button>
+<div className="flex justify-end ">
+    <button 
+        className="relative top-[-20px] mr-12"
+        onClick={() => removeManifestationHandler(manifestationId)}>X</button>
 </div>
 
 )

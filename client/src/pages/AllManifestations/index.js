@@ -22,20 +22,23 @@ const AllManifestations = () => {
     }
 
 return (
-<div className="button space-y-2">
+<div className="button ">
 
     <h1>Manifestations</h1>
     {manifestations.map((manifestation) => (
         <div 
-        className="w-full mt-2 bg-transparent border border-white rounded-full px-1 py-1 text-center"
+        className="w-full mt-2 bg-transparent border border-white rounded-full px-1 py-1 text-center "
         key={manifestation._id}>
+            
           <button 
-          className="w-full h-10 text-sm "
+          className="w-full h-10 text-md "
           onClick={() => toggleButton(manifestation._id)}>
-          {manifestation.createdAt}
+          {manifestation.createdAt} 
          
           </button>
-          <DeleteBtn manifestationId={manifestation._id}/>
+          
+          <DeleteBtn 
+            manifestationId={manifestation._id}/>
             {expandedButton[manifestation._id] &&(
         <div>
             <p> Today I'm feeling {manifestation.todaysFeeling}</p>
